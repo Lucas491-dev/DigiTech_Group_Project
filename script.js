@@ -274,14 +274,14 @@ $('#query').on('input', function(event) {
     event.preventDefault();
     const userInput = $('#query').val().toLowerCase(); 
     
-        results = subjects.filter(item => item.name.toLowerCase().includes(userInput) && item.stage === selectedStage).slice(0,5);
+        results = subjects.filter(item => item.name.toLowerCase().includes(userInput) && item.stage == selectedStage).slice(0,5);
 
     $('#results').empty();
     
     
     if (results.length > 0) {
         results.forEach((result, index) => {
-            $('#results').append(`<li data-index="${index}">${result.name} (${result.code})</li>`);
+            $('#results').append(`<li data-index="${index}">${result.name}</li>`);
 
         });
     } else {
@@ -296,7 +296,7 @@ $('#query').on('input', function(event) {
 $('#results').on('click', 'li', function() {
     let index = $(this).data('index');
     let selectedItem = results[index]
-    $('#query').val(selectedItem.description);
+    $('#query').val(selectedItem.name);
     $('#results').empty();
 })
 })
