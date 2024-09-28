@@ -1,1 +1,7 @@
-
+#results li {
+    padding: 15px;
+    cursor: pointer;
+}
+#results li:hover {
+    background-color: #f0f0f0;
+}

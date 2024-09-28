@@ -1,1 +1,47 @@
-baller
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        <title>Sace Planner</title>
+
+    
+
+        <!-- jQuery -->
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <!-- Your content goes here -->
+
+        <div class="container">
+
+            <h1 class="title">Nutrition Tracker</h1>
+
+            <form id="form"  autocomplete="off">
+                <label for="query">Add Subject</label>
+                <input type="text" id="query" placeholder="Enter subject"  style=" text-align:right" ;>
+                <button type="button">Add</button>
+                <div class="input-container">
+                    <label for="stage">Stage:</label>
+                    <input type="number" id="stage" name="stage" placeholder="Enter stage" min="1" max="2" style=" text-align:right;">
+                    <span class="unit-label">grams</span>
+                </div>
+            </form>
+            
+            <ul id="results"></ul>
+            
+       
+        </script>
+        
+        <script src="script.js"></script>
+
+    </body>
+
+</html>
