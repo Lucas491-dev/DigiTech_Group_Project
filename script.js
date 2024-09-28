@@ -261,10 +261,11 @@ const subjects = [
     {name: "Workplace Practices", stage: 2},
     {name: "Yiddish (continuers)", stage: 2}
   ];
-console.log(subjects)
-let selectedStage = 1
+const button = document.querySelector("button");
+button.addEventListener("click", addSubject);
+let selectedStage = 1, numberofSemesters = 1, currentSubjects =[]
 numberPicker.addEventListener('change', (event) => {
-    selectedStage = event.target.value
+    selectedStage = parseInt(event.target.value)
     console.log(selectedStage)
   });
 
@@ -274,7 +275,7 @@ $('#query').on('input', function(event) {
     event.preventDefault();
     const userInput = $('#query').val().toLowerCase(); 
     
-        results = subjects.filter(item => item.name.toLowerCase().includes(userInput) && item.stage.toFixed(1) === selectedStage).slice(0,5);
+        results = subjects.filter(item => item.name.toLowerCase().includes(userInput) && item.stage === selectedStage).slice(0,5);
 
     $('#results').empty();
     
@@ -300,3 +301,19 @@ $('#results').on('click', 'li', function() {
     $('#results').empty();
 })
 })
+function addSubject(){
+    var checkbox = document.getElementById('semesterTick');
+    var isChecked = checkbox.checked;
+    subjectToAdd = $('#query').val()
+    if(isChecked){
+        numberofSemesters = 2
+    }else{
+        numberofSemesters = 1
+    }
+    alert("Stage " + selectedStage + " " + subjectToAdd + " for " + numberofSemesters + " semesters")
+    currentSubjects.push({
+        "name":subjectToAdd,
+        "numSemesters":numberofSemesters,
+        'stage':selectedStage
+    })
+}
