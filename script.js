@@ -215,7 +215,8 @@ $('#query').on('input', function(event) {
     
     if (results.length > 0) {
         results.forEach((result, index) => {
-            $('#results').append(`<li data-index="${index}">${result.name}${result.code}</li>`); // Append each result description as a list item
+            $('#results').append(`<li data-index="${index}">${result.name} (${result.code})</li>`);
+
         });
     } else {
         
