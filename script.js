@@ -274,7 +274,7 @@ $('#query').on('input', function(event) {
     event.preventDefault();
     const userInput = $('#query').val().toLowerCase(); 
     
-        results = subjects.filter(item => item.name.toLowerCase().includes(userInput) && item.stage == selectedStage).slice(0,5);
+        results = subjects.filter(item => item.name.toLowerCase().includes(userInput) && item.stage.toFixed(1) === selectedStage).slice(0,5);
 
     $('#results').empty();
     
