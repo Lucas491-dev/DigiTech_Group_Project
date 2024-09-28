@@ -23,17 +23,14 @@
         <div class="container">
 
             <h1 class="title">Nutrition Tracker</h1>
-
+            label>Pick a number:</label><br>
+            <input type="radio" id="one" name="numberPicker" value="1">
+            <label for="one">1</label><br>
+            <input type="radio" id="two" name="numberPicker" value="2">
+            <label for="two">2</label>
             <form id="form"  autocomplete="off">
                 <label for="query">Add Subject</label>
-                <input type="text" id="query" placeholder="Enter subject"  style=" text-align:right" ;>
-                <button type="button">Add</button>
-                <div class="input-container">
-                    <label for="stage">Stage:</label>
-                    <input type="number" id="stage" name="stage" placeholder="Enter stage" min="1" max="2" style=" text-align:right;">
-                    <span class="unit-label">grams</span>
-                </div>
-            </form>
+                <input type="text" id="query" placeholder="Enter subject"  style="text-align:right"><button type="button">Add</button>
             
             <ul id="results"></ul>
             
