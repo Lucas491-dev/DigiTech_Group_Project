@@ -109,35 +109,35 @@ const subjects = [
     { name: "Italian (continuers)", code: "1ITC20", stage: "1" },
     { name: "Japanese (beginners)", code: "1JAB10", stage: "1" }
   ];
-  
-  $(document).ready(function() {
+console.log(subjects)
+$(document).ready(function() {
 
-    $('#query').on('input', function(event) {
-        event.preventDefault();
-        const userInput = $('#query').val().toLowerCase(); 
-        
-         results = subjects.filter(item => item.name.toLowerCase().includes(userInput)).slice(0,5);
+$('#query').on('input', function(event) {
+    event.preventDefault();
+    const userInput = $('#query').val().toLowerCase(); 
+    
+        results = subjects.filter(item => item.name.toLowerCase().includes(userInput)).slice(0,5);
 
-        $('#results').empty();
+    $('#results').empty();
+    
+    
+    if (results.length > 0) {
+        results.forEach((result, index) => {
+            $('#results').append(`<li data-index="${index}">${result.name}</li>`); // Append each result description as a list item
+        });
+    } else {
         
-     
-        if (results.length > 0) {
-            results.forEach((result, index) => {
-                $('#results').append(`<li data-index="${index}">${result.name}</li>`); // Append each result description as a list item
-            });
-        } else {
-           
-            $('#results').append('<li>No results found</li>'); // Display a message when no results are found
-            
-        }
+        $('#results').append('<li>No results found</li>'); // Display a message when no results are found
         
-        
-    });
+    }
+    
+    
+});
 
-    $('#results').on('click', 'li', function() {
-        let index = $(this).data('index');
-        let selectedItem = results[index]
-        $('#query').val(selectedItem.description);
-        $('#results').empty();
-    })
+$('#results').on('click', 'li', function() {
+    let index = $(this).data('index');
+    let selectedItem = results[index]
+    $('#query').val(selectedItem.description);
+    $('#results').empty();
+})
 })
