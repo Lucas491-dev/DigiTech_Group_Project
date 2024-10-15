@@ -263,7 +263,7 @@ const subjects = [
     {name: "Specialist Mathematics", stage: 2}
   ];
 const button = document.querySelector("button");
-let subjectplaceholder = localStorage.getItem('takenSubjects')
+let subjectplaceholder = localStorage.getItem('currentSubjects')
 button.addEventListener("click", addSubject);
 let selectedStage = 1, numberofSemesters = 1, currentSubjects =[]
 numberPicker.addEventListener('change', (event) => {
