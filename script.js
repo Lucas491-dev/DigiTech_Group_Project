@@ -263,6 +263,7 @@ const subjects = [
     {name: "Specialist Mathematics", stage: 2}
   ];
 const button = document.querySelector("button");
+let subjectplaceholder = localStorage.getItem('takenSubjects')
 button.addEventListener("click", addSubject);
 let selectedStage = 1, numberofSemesters = 1, currentSubjects =[]
 numberPicker.addEventListener('change', (event) => {
@@ -311,10 +312,13 @@ function addSubject(){
     }else{
         numberofSemesters = 1
     }
-    alert("Stage " + selectedStage + " " + subjectToAdd + " for " + numberofSemesters + " semesters")
+    // alert("Stage " + selectedStage + " " + subjectToAdd + " for " + numberofSemesters + " semesters")
     currentSubjects.push({
         "name":subjectToAdd,
         "numSemesters":numberofSemesters,
         'stage':selectedStage
     })
+    saveArrayToLocalStorage('currentSubjects' , currentSubjects)
+    subjectplaceholder = localStorage.getItem('currentSubjects')
+    alert(subjectplaceholder)
 }
