@@ -262,8 +262,9 @@ const subjects = [
     {name: "Mathematical Methods", stage: 2},
     {name: "Specialist Mathematics", stage: 2}
   ];
-const button = document.querySelector("button"), currentSubjects =[]
+const button = document.querySelector("button")
 let subjectplaceholder = localStorage.getItem('takenSubjectsStorage')
+let currentSubjects = []
 if (selectedplaceholder){
     currentSubjects = JSON.stringify(subjectplaceholder)
 }
