@@ -65,7 +65,6 @@ const subjects = [
     { name: "Language and Culture", stage: 1 },
     { name: "Legal Studies", stage: 1 },
     { name: "Latin (continuers)", stage: 1 },
-    { name: "Mathematics", stage: 1 },
     { name: "Essential Mathematics", stage: 1 },
     { name: "Media Studies", stage: 1 },
     { name: "Modern Greek (beginners)", stage: 1 },
@@ -259,7 +258,9 @@ const subjects = [
     {name: "Workplace Practices A", stage: 2},
     {name: "Workplace Practices B", stage: 2},
     {name: "Workplace Practices", stage: 2},
-    {name: "Yiddish (continuers)", stage: 2}
+    {name: "Yiddish (continuers)", stage: 2},
+    {name: "Mathematical Methods", stage: 2},
+    {name: "Specialist Mathematics", stage: 2}
   ];
 const button = document.querySelector("button");
 button.addEventListener("click", addSubject);
