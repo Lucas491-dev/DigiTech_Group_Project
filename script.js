@@ -318,11 +318,12 @@ function addSubject(){
     }
     // alert("Stage " + selectedStage + " " + subjectToAdd + " for " + numberofSemesters + " semesters")
     currentSubjects.push({
-        "name":subjectToAdd,
-        "numSemesters":numberofSemesters,
-        'stage':selectedStage
+        name:subjectToAdd,
+        numSemesters:numberofSemesters,
+        stage:selectedStage
     })
-    saveArrayToLocalStorage('takenSubjectsStorage' , currentSubjects)
     alert(currentSubjects)
+    // saveArrayToLocalStorage('takenSubjectsStorage' , currentSubjects)
+    // alert(currentSubjects)
    
 }
