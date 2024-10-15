@@ -262,10 +262,13 @@ const subjects = [
     {name: "Mathematical Methods", stage: 2},
     {name: "Specialist Mathematics", stage: 2}
   ];
-const button = document.querySelector("button");
-let subjectplaceholder = localStorage.getItem('currentSubjects')
+const button = document.querySelector("button"), currentSubjects =[]
+let subjectplaceholder = localStorage.getItem('takenSubjectsStorage')
+if (selectedplaceholder){
+    currentSubjects = JSON.stringify(subjectplaceholder)
+}
 button.addEventListener("click", addSubject);
-let selectedStage = 1, numberofSemesters = 1, currentSubjects =[]
+let selectedStage = 1, numberofSemesters = 1 
 numberPicker.addEventListener('change', (event) => {
     selectedStage = parseInt(event.target.value)
     console.log(selectedStage)
@@ -318,7 +321,7 @@ function addSubject(){
         "numSemesters":numberofSemesters,
         'stage':selectedStage
     })
-    saveArrayToLocalStorage('currentSubjects' , currentSubjects)
-    subjectplaceholder = localStorage.getItem('currentSubjects')
-    alert(subjectplaceholder)
+    saveArrayToLocalStorage('takenSubjectsStorage' , currentSubjects)
+    alert(currentSubjects)
+   
 }
