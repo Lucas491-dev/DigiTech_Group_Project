@@ -3,9 +3,8 @@
 <html>
 
     <head>
-
+       
         <title>Sace Planner</title>
-
     
 
         <!-- jQuery -->
@@ -13,34 +12,48 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+       
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     </head>
 
     <body>
-
-        <!-- Your content goes here -->
         
-        <div class="container">
+  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+     
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" href="index.html">Add Assessments</a>
+            <a class="navbar-item" href="grades.html">X</a>
+            <a class="navbar-item" href="x.html">Y</a>
+        </div>
+    </div>
+</nav>
 
-            <h1 class="title">Add a Subject</h1>
-            <label for="numberPicker">What Stage:</label>
-            <select id="numberPicker" name="numberPicker">
+    <div class="container">
+        <h1 class="title">Add a Subject</h1>
+
+        <label for="numberPicker">What Stage:</label>
+        <select id="numberPicker" name="numberPicker">
             <option value="1">1</option>
             <option value="2">2</option>
-            </select>
-           
-                <label for="semesterTick">Is it for 2 Semesters</label>
-                <input type="checkbox" id="semesterTick" name="semesterTick" value="2">
-          
-               
-            <form id="form"  autocomplete="off">
-                <label for="query">Add Subject</label>
-                <input type="text" id="query" placeholder="Enter subject"  style="text-align:right" >
-                <button type="button">Add</button>
-               
-            
-            <ul id="results"></ul>
-            
+        </select>
+
+        <div class="form-group">
+            <label for="semesterTick">Is it for 2 Semesters</label>
+            <input type="checkbox" id="semesterTick" name="semesterTick" value="2">
+        </div>
+
+        <form id="form" autocomplete="off">
+            <label for="query">Add Subject</label>
+            <input type="text" id="query" placeholder="Enter subject" style="text-align:right">
+            <button type="button">Add</button>
+        </form>
+
+        <ul id="results"></ul>
+    </div>
        
         </script>
         
