@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Grades</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+        <div class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="indexTasks.html">Add Assessments</a>
+                <a class="navbar-item" href="grades.html">Grades</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="section">
+        <h1 class="title">Grades</h1>
+        <table class="table" id="taskTable">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Task</th>
+                    <th>Due Date</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <table id="taskTable"></table>
+
+<div id="gradeSection">
+    <h3>Grade Task</h3>
+    <p>Subject: <span id="subjectDisplay"></span></p>
+    <p>Task: <span id="taskNameDisplay"></span></p>
+    <p>Due Date: <span id="dueDateDisplay"></span></p>
+    <p>Notes: <span id="notesDisplay"></span></p>
+
+    <label for="gradeInput">Grade:</label>
+    <input type="text" id="gradeInput" />
+
+    <button id="saveGradeButton" class="button is-link is-small">Save Grade</button>
+    
+</div>
+
+<h3>Graded Tasks</h3>
+<table id="gradedTable" class="table is-bordered">
+    <tr>
+        <th>Subject</th>
+        <th>Task</th>
+        <th>Due Date</th>
+        <th>Notes</th>
+        <th>Grade</th>
+        <th>Delete</th>
+    
+    </tr>
+</table>
+
+    </div>
+
+    <script src="grades.js"></script>
+</body>
+
+</html>
