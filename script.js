@@ -328,3 +328,4 @@ function addSubject(){
     // alert(currentSubjects)
     localStorage.setItem('takenSubjectsStorage', JSON.stringify(currentSubjects));
 }
+
