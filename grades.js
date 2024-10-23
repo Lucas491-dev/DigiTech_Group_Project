@@ -135,6 +135,6 @@ function calculateGPA(gpaPlaceholder) {
     //this goes through and adds the gpa on a 15 scale
     const subject = userSubjects.find(s => s.name === selectedSubject);
         subject.numAssignments++;
-        subject.gpa = ((subject.gpa * (subject.numAssignments - 1)) + gpaPlaceholder) / subject.numAssignments;
+        subject.gpa = parseFloat((((subject.gpa * (subject.numAssignments - 1)) + gpaPlaceholder) / subject.numAssignments).toFixed(2));
         localStorage.setItem('takenSubjectsStorage', JSON.stringify(userSubjects));
 }

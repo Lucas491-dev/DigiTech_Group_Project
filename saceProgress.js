@@ -4,11 +4,7 @@ if (subjectplaceholder){
     currentSubjects = JSON.parse(subjectplaceholder);
 }
 let litsubjects = []
-let litcredits = 0
-
-let numeracySubjects = []
-let numeracyCredits = 0
-let creditsNum = 0
+let litcredits = 0, pointsplaceholder = 0, numeracySubjects = [], numeracyCredits = 0, creditsNum = 0
 let subjectsForPoints = []
 let grades = ["E-",
     "E","E+","D-","D","D+","C-","C","C+","B-","B","B+","A-","A","A+"
@@ -18,15 +14,21 @@ let lettergrade
 for(let i = 0; i< currentSubjects.length; i++){
     if (currentSubjects[i].gpa >= 7){
     creditsNum += currentSubjects[i].numSemesters *10   
+    pointsplaceholder =  currentSubjects[i].numSemesters * 10
+    }else{
+        pointsplaceholder = 0
     }
     if (currentSubjects[i].gpa == 8 && currentSubjects[i].numAssignments == 0){
         lettergrade = "Assumed C (No Grade Yet)"
+        
+       
     } else{
         lettergrade = grades[parseInt(currentSubjects[i].gpa)]
+       
     }
     subjectsForPoints.push({
         name: currentSubjects[i].name,
-        points: currentSubjects[i].numSemesters * 10,
+        points: pointsplaceholder,
         gpa: currentSubjects[i].gpa,
         lettergpa: lettergrade
     });
@@ -35,25 +37,27 @@ for(let i = 0; i< currentSubjects.length; i++){
     if(currentSubjects[i].name === "English" || currentSubjects[i].name === "Essential English" ||currentSubjects[i].name === "English as an Additional Language" || currentSubjects[i].name === "English Literary Studies"){
        if (currentSubjects[i].gpa >= 7){
              litcredits += currentSubjects[i].numSemesters * 10
-            litsubjects.push({
-                name: currentSubjects[i].name,
-                points: currentSubjects[i].numSemesters * 10,
-                gpa: currentSubjects[i].gpa,
-                lettergpa: lettergrade
-            });
+          
        }
-        
+       litsubjects.push({
+        name: currentSubjects[i].name,
+        points: pointsplaceholder,
+        gpa: currentSubjects[i].gpa,
+        lettergpa: lettergrade
+    });
+
     }if(currentSubjects[i].name === "Essential Mathematics" || currentSubjects[i].name === "General Mathematics" ||currentSubjects[i].name === "Mathematical Methods" || currentSubjects[i].name === "Specialist Mathematics"){
         if (currentSubjects[i].gpa >= 7){
                 numeracyCredits += currentSubjects[i].numSemesters * 10
-                numeracySubjects.push({
-                    name: currentSubjects[i].name,
-                    points: currentSubjects[i].numSemesters * 10,
-                    gpa: currentSubjects[i].gpa,
-                    lettergpa: lettergrade
-                });
-        }
-  }
+                
+     }
+    numeracySubjects.push({
+            name: currentSubjects[i].name,
+            points: pointsplaceholder,
+            gpa: currentSubjects[i].gpa,
+            lettergpa: lettergrade
+        });
+    }
 }
 
 console.log(litsubjects)
