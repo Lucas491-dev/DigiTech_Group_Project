@@ -1,10 +1,8 @@
-const userSubjects = [ //random subjecrts replace these with the user ones
-    { name: "Specialist Maths", code: "Spec" },
-    { name: "Bengali", code: "Ben" },
-    { name: "Digital Tech", code: "Dig" },
-    {name: "Physics", code:"Phy"},
-];
-
+let userSubjects
+let subjectplaceholder = localStorage.getItem('takenSubjectsStorage')
+if (subjectplaceholder){
+    userSubjects = JSON.parse(subjectplaceholder);
+}
 let tasks = JSON.parse(localStorage.getItem('assessments')) || []; //make assesement obnkecyt for local storage yipeee
 
 const subjectList = document.getElementById("subjectList");

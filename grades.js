@@ -7,10 +7,15 @@ const dueDateDisplay = document.getElementById("dueDateDisplay");
 const notesDisplay = document.getElementById("notesDisplay");
 const gradeInput = document.getElementById("gradeInput");
 const saveGradeButton = document.getElementById("saveGradeButton");
-
 let tasks = JSON.parse(localStorage.getItem('assessments')) || []; // get the assessments from script.js
 let gradedTasks = JSON.parse(localStorage.getItem('gradedTasks')) || []; // make new object for the tasks once graded: a task once graded goes in here and leaves 'assessments'
 let selectedTaskIndex = null;
+let selectedSubject
+let userSubjects
+let subjectplaceholder = localStorage.getItem('takenSubjectsStorage')
+if (subjectplaceholder){
+    userSubjects = JSON.parse(subjectplaceholder);
+}
 
 function makeTable() { // print out assessment table, exactly the same as script.js (im too lazy to put it in the html)
     taskTable.innerHTML = `
@@ -41,14 +46,26 @@ function showGradeSection(task, index) {
     subjectDisplay.textContent = task.subject;
     taskNameDisplay.textContent = task.taskName;
     dueDateDisplay.textContent = task.taskDue;
-    notesDisplay.textContent = task.taskInfo;   // the grade section fields are filled out. subjectDisplay and others are from the HTML. there is probably a better way to do this but im lazy
+    notesDisplay.textContent = task.taskInfo;   
+    // the grade section fields are filled out. subjectDisplay and others are from the HTML. there is probably a better way to do this but im lazy
+    selectedSubject = task.subject;
 }
 
 saveGradeButton.addEventListener("click", () => {
-    const grade = gradeInput.value.trim();
+    
+
+    const grade = gradeInput.value;
+    const gpaPlaceholder = 14 - gradeInput.selectedIndex 
+    calculateGPA(gpaPlaceholder)
+    //this is to check later on if the subject actually goes to ones sace (if they fail or not)
+
+    //this was lucas btw
+
+
     if (grade && selectedTaskIndex !== null) { // if there is a grade and a task in the grade section, the grade for that task goes to addGradedTask()
         const task = tasks[selectedTaskIndex];
         addGradedTask(task, grade);
+       
 
         tasks.splice(selectedTaskIndex, 1); // deletes task from table
         localStorage.setItem('assessments', JSON.stringify(tasks));  // after task is deleted localStorage gets updated - localStorage can only save strings hence JSON stringify
@@ -114,3 +131,10 @@ window.onload = () => {
     loadGradedTasks();
 };
 
+function calculateGPA(gpaPlaceholder) {
+    //this goes through and adds the gpa on a 15 scale
+    const subject = userSubjects.find(s => s.name === selectedSubject);
+        subject.numAssignments++;
+        subject.gpa = ((subject.gpa * (subject.numAssignments - 1)) + gpaPlaceholder) / subject.numAssignments;
+        localStorage.setItem('takenSubjectsStorage', JSON.stringify(userSubjects));
+}

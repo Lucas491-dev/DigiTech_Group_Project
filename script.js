@@ -306,6 +306,7 @@ $('#results').on('click', 'li', function() {
     let selectedItem = results[index]
     $('#query').val(selectedItem.name);
     $('#results').empty();
+
 })
 })
 function addSubject(){
@@ -321,8 +322,11 @@ function addSubject(){
     currentSubjects.push({
         'name':subjectToAdd,
         'numSemesters':numberofSemesters,
-        'stage':selectedStage
+        'stage':selectedStage,
+        'gpa':8,
+        'numAssignments':0
     })
+    $('#query').val("");
     // alert(currentSubjects)
     console.log(currentSubjects)// saveArrayToLocalStorage('takenSubjectsStorage' , currentSubjects)
     // alert(currentSubjects)

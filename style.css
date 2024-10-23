@@ -106,11 +106,3 @@ ul li {
 html, body {
     height:100%
 }
-.collapsible, .collapsibleOveralPoints, .collapsiblenumeracy{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    min-height: 100px;
-     width: 95%;;
-   
-}
