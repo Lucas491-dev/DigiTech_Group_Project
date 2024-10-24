@@ -51,7 +51,7 @@ const subjects = [
     { name: "Indonesian (continuers)", stage: 1 },
     { name: "Indonesian (background speakers)", stage: 1 },
     { name: "Information Processing and Publishing", stage: 1 },
-    { name: "AIF", stage: 2 },
+    { name: "Digital Technologies", stage: 1 },
     { name: "Italian (beginners)", stage: 1 },
     { name: "Italian (continuers)", stage: 1 },
     { name: "Japanese (beginners)", stage: 1 },
@@ -313,23 +313,25 @@ function addSubject(){
     var checkbox = document.getElementById('semesterTick');
     var isChecked = checkbox.checked;
     subjectToAdd = $('#query').val()
-    if(isChecked){
-        numberofSemesters = 2
-    }else{
-        numberofSemesters = 1
+    if (subjectToAdd){
+        if(isChecked){
+            numberofSemesters = 2
+        }else{
+            numberofSemesters = 1
+        }
+        // alert("Stage " + selectedStage + " " + subjectToAdd + " for " + numberofSemesters + " semesters")
+        currentSubjects.push({
+            'name':subjectToAdd,
+            'numSemesters':numberofSemesters,
+            'stage':selectedStage,
+            'gpa':8,
+            'numAssignments':0
+        })
+        $('#query').val("");
+        // alert(currentSubjects)
+        console.log(currentSubjects)// saveArrayToLocalStorage('takenSubjectsStorage' , currentSubjects)
+        // alert(currentSubjects)
+        localStorage.setItem('takenSubjectsStorage', JSON.stringify(currentSubjects));
     }
-    // alert("Stage " + selectedStage + " " + subjectToAdd + " for " + numberofSemesters + " semesters")
-    currentSubjects.push({
-        'name':subjectToAdd,
-        'numSemesters':numberofSemesters,
-        'stage':selectedStage,
-        'gpa':8,
-        'numAssignments':0
-    })
-    $('#query').val("");
-    // alert(currentSubjects)
-    console.log(currentSubjects)// saveArrayToLocalStorage('takenSubjectsStorage' , currentSubjects)
-    // alert(currentSubjects)
-    localStorage.setItem('takenSubjectsStorage', JSON.stringify(currentSubjects));
 }
 
