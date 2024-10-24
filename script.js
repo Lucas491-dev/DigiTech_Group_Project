@@ -51,7 +51,7 @@ const subjects = [
     { name: "Indonesian (continuers)", stage: 1 },
     { name: "Indonesian (background speakers)", stage: 1 },
     { name: "Information Processing and Publishing", stage: 1 },
-    { name: "Digital Technologies", stage: 1 },
+    { name: "AIF", stage: 2 },
     { name: "Italian (beginners)", stage: 1 },
     { name: "Italian (continuers)", stage: 1 },
     { name: "Japanese (beginners)", stage: 1 },
