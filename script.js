@@ -51,7 +51,6 @@ const subjects = [
     { name: "Indonesian (continuers)", stage: 1 },
     { name: "Indonesian (background speakers)", stage: 1 },
     { name: "Information Processing and Publishing", stage: 1 },
-    { name: "Digital Technologies", stage: 1 },
     { name: "Italian (beginners)", stage: 1 },
     { name: "Italian (continuers)", stage: 1 },
     { name: "Japanese (beginners)", stage: 1 },
@@ -313,7 +312,7 @@ function addSubject(){
     var checkbox = document.getElementById('semesterTick');
     var isChecked = checkbox.checked;
     subjectToAdd = $('#query').val()
-    if (subjectToAdd){
+    if (subjectToAdd.length > 1){
         if(isChecked){
             numberofSemesters = 2
         }else{
